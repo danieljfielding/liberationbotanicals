@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#F3EFE7;color:#2B2620;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#2B2620;text-decoration:none}
+a:hover{color:#8A6420}
+button{font-family:inherit}
+@keyframes lbFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes lbMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<div style="background:#2B2620;color:#E9E2D4;font-size:12px;letter-spacing:.08em;text-align:center;padding:9px 16px">Australian made and owned. To order, email <a href="mailto:info@liberationbotanicals.com.au" style="color:#E9C77B">info@liberationbotanicals.com.au</a></div>
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(243,239,231,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(43,38,32,.1)">
+  <div style="max-width:1360px;margin:0 auto;padding:16px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <a href="#" onClick="{{ goHome }}" style="display:flex"><img src="assets/logo-black.png" alt="Liberation Botanicals" style="height:38px;width:auto;display:block"></a>
+    <nav style="display:flex;gap:clamp(16px,3vw,36px);font-size:14px;letter-spacing:.02em;flex-wrap:wrap">
+      <a href="#" onClick="{{ goShop }}" style="padding:6px 0;border-bottom:1px solid {{ ulShop }}">Range</a>
+      <a href="#" onClick="{{ goIngredients }}" style="padding:6px 0;border-bottom:1px solid {{ ulIngredients }}">Ingredients</a>
+      <a href="#" onClick="{{ goAbout }}" style="padding:6px 0;border-bottom:1px solid {{ ulAbout }}">Our story</a>
+      <a href="#" onClick="{{ goContact }}" style="padding:6px 0;border-bottom:1px solid {{ ulContact }}">Contact &amp; enquiries</a>
+    </nav>
+  </div>
+</header>
+
+<main style="flex:1">
+
+<!-- HOME A: Apothecary -->
+<sc-if value="{{ isHomeA }}" hint-placeholder-val="{{ true }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px;max-width:560px;animation:lbFade .9s ease both">
+      <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Natural Mist Collection</div>
+      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(44px,6vw,84px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance">Botanical mists for morning and night.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#5A5146;max-width:46ch;text-wrap:pretty">Four facial mists made in Australia with niacinamide and pure essential oils. Two to start the day, two to close it.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;padding-top:8px">
+        <a href="#" onClick="{{ goShop }}" style="background:#2B2620;color:#F3EFE7;padding:16px 28px;font-size:14px;letter-spacing:.04em;transition:background .3s" style-hover="background:#4A4036;color:#F3EFE7">Explore the range</a>
+        <a href="#" onClick="{{ goAbout }}" style="padding:16px 4px;font-size:14px;letter-spacing:.04em;border-bottom:1px solid rgba(43,38,32,.3)">Our story</a>
+      </div>
+    </div>
+    <div style="aspect-ratio:4/5;overflow:hidden;background:#E6DFD2">
+      <img src="assets/lifestyle-marble.webp" alt="The Liberation Botanicals range on marble with lavender" style="width:100%;height:100%;object-fit:cover;object-position:center 100%;display:block">
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(43,38,32,.12);border-bottom:1px solid rgba(43,38,32,.12)">
+    <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:clamp(40px,5vw,72px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:20px;border-right:1px solid rgba(43,38,32,.12)">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Morning</div>
+        <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Wake the skin.</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#5A5146;max-width:42ch">Bergamot, pink grapefruit, sweet orange and jasmine for a bright start. Mist after cleansing or whenever you need a reset.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
+          <a href="#" onClick="{{ openRevive }}" style="padding:10px 18px;border:1px solid rgba(43,38,32,.25);font-size:13px;letter-spacing:.06em">REVIVE</a>
+          <a href="#" onClick="{{ openEnergise }}" style="padding:10px 18px;border:1px solid rgba(43,38,32,.25);font-size:13px;letter-spacing:.06em">ENERGISE</a>
+        </div>
+      </div>
+      <div style="padding:clamp(40px,5vw,72px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:20px;background:#2B2620;color:#EDE6D8">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E9C77B">Night</div>
+        <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Slow the evening.</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#C9BFAE;max-width:42ch">Lavender, clary sage, chamomile and bergamot to settle you before sleep. Mist over face and pillow as you wind down.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
+          <a href="#" onClick="{{ openCalm }}" style="padding:10px 18px;border:1px solid rgba(237,230,216,.35);font-size:13px;letter-spacing:.06em;color:#EDE6D8">CALM</a>
+          <a href="#" onClick="{{ openRelax }}" style="padding:10px 18px;border:1px solid rgba(237,230,216,.35);font-size:13px;letter-spacing:.06em;color:#EDE6D8">RELAX</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,112px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">The range</h2>
+      <a href="#" onClick="{{ goShop }}" style="font-size:14px;border-bottom:1px solid rgba(43,38,32,.3);padding-bottom:3px">View all</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+        <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:16px;color:#2B2620">
+          <div style="aspect-ratio:4/5;background:#EDECEA;overflow:hidden">
+            <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)">
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:14px;font-weight:600;letter-spacing:.08em">{{ p.name }}</div>
+              <div style="font-size:14px;color:#6B6155">{{ p.type }}</div>
+            </div>
+            <div style="font-size:14px;color:#6B6155;white-space:nowrap">from $15.99</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,112px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(32px,4vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2B2620;padding-top:20px">
+      <div style="font-family:Newsreader,serif;font-size:15px;color:#8A6420">01</div>
+      <h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:26px">Whole-plant distillation</h3>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">We distil the whole plant to keep its full aromatic profile, so every spritz smells as it should.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2B2620;padding-top:20px">
+      <div style="font-family:Newsreader,serif;font-size:15px;color:#8A6420">02</div>
+      <h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:26px">Niacinamide in every mist</h3>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Each formula carries niacinamide alongside its botanicals for a light, hydrating finish.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2B2620;padding-top:20px">
+      <div style="font-family:Newsreader,serif;font-size:15px;color:#8A6420">03</div>
+      <h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:26px">Made in Australia</h3>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Sourced from local growers and made here. Cruelty-free, non-toxic and vegan.</p>
+    </div>
+  </section>
+
+  <section style="background:#E6DFD2">
+    <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));align-items:center">
+      <img src="assets/gift-sets.png" alt="Restore and Rejuvenate gift sets" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3">
+      <div style="padding:clamp(40px,5vw,80px) clamp(20px,4vw,64px);display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Gift sets</div>
+        <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Restore and Rejuvenate</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#5A5146;max-width:44ch">Two mists, boxed together. Restore pairs CALM and RELAX for the evening. Rejuvenate pairs REVIVE and ENERGISE for the morning.</p>
+        <a href="mailto:info@liberationbotanicals.com.au?subject=Gift%20set%20enquiry" style="align-self:flex-start;background:#2B2620;color:#F3EFE7;padding:16px 28px;font-size:14px;letter-spacing:.04em">Enquire about gift sets</a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- HOME B: Colour -->
+<sc-if value="{{ isHomeB }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,7vw,104px) clamp(20px,4vw,48px) clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:28px;animation:lbFade .9s ease both">
+    <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Australian-made botanical facial mists</div>
+    <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(52px,8.5vw,136px);line-height:.95;letter-spacing:-.03em;max-width:12ch">Four mists. <span style="font-style:italic">One daily ritual.</span></h1>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#5A5146;max-width:44ch">Each made with niacinamide and pure essential oils. Pick a mist for how you want to feel.</p>
+      <a href="#" onClick="{{ goShop }}" style="background:#2B2620;color:#F3EFE7;padding:16px 28px;font-size:14px;letter-spacing:.04em">Explore the range</a>
+    </div>
+  </section>
+
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+    <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+      <a href="#" onClick="{{ p.open }}" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:3/4.4;background:{{ p.label }};padding:22px;overflow:hidden;color:#2B2620;transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-8px);color:#2B2620">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1">
+          <div style="font-size:15px;font-weight:600;letter-spacing:.1em">{{ p.name }}</div>
+          <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase">{{ p.time }}</div>
+        </div>
+        <img src="{{ p.img100 }}" alt="{{ p.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply">
+        <div style="position:relative;z-index:1;font-family:Newsreader,serif;font-size:20px;font-style:italic">{{ p.feel }}</div>
+      </a>
+    </sc-for>
+  </section>
+
+  <section style="overflow:hidden;border-top:1px solid rgba(43,38,32,.12);border-bottom:1px solid rgba(43,38,32,.12);margin-top:clamp(56px,7vw,104px)">
+    <div style="display:flex;width:max-content;animation:lbMarquee 40s linear infinite;font-family:Newsreader,serif;font-size:clamp(24px,3vw,40px);font-weight:300;padding:22px 0;white-space:nowrap">
+      <span style="padding-right:48px">Cruelty-free · Non-toxic · Vegan · Made in Australia · With pure essential oils · Niacinamide in every mist ·</span>
+      <span style="padding-right:48px">Cruelty-free · Non-toxic · Vegan · Made in Australia · With pure essential oils · Niacinamide in every mist ·</span>
+    </div>
+  </section>
+
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,112px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+    <div style="aspect-ratio:1/1;overflow:hidden;background:#E6DFD2">
+      <img src="assets/lifestyle-marble.webp" alt="The range on marble with lavender" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,52px);line-height:1.08">How to use</h2>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:1px solid rgba(43,38,32,.15)">
+          <div style="font-family:Newsreader,serif;font-size:22px;color:#8A6420">01</div>
+          <div style="font-size:16px;line-height:1.6;color:#5A5146"><strong style="color:#2B2620;font-weight:600">Shake.</strong> Give the bottle a gentle shake to blend the oils.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:1px solid rgba(43,38,32,.15)">
+          <div style="font-family:Newsreader,serif;font-size:22px;color:#8A6420">02</div>
+          <div style="font-size:16px;line-height:1.6;color:#5A5146"><strong style="color:#2B2620;font-weight:600">Mist.</strong> Hold 20cm from the face, close your eyes and spritz two or three times.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:1px solid rgba(43,38,32,.15);border-bottom:1px solid rgba(43,38,32,.15)">
+          <div style="font-family:Newsreader,serif;font-size:22px;color:#8A6420">03</div>
+          <div style="font-size:16px;line-height:1.6;color:#5A5146"><strong style="color:#2B2620;font-weight:600">Breathe.</strong> Take a slow breath in. Use morning, night, or over your pillow.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#2B2620;color:#EDE6D8">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,112px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E9C77B">Gift sets</div>
+        <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1.04">Restore. <span style="font-style:italic">Rejuvenate.</span></h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#C9BFAE;max-width:42ch">Two-mist boxes for the evening and the morning. Made to be given.</p>
+        <a href="mailto:info@liberationbotanicals.com.au?subject=Gift%20set%20enquiry" style="align-self:flex-start;background:#E9C77B;color:#2B2620;padding:16px 28px;font-size:14px;letter-spacing:.04em">Enquire about gift sets</a>
+      </div>
+      <img src="assets/gift-sets.png" alt="Restore and Rejuvenate gift sets" style="width:100%;display:block">
+    </div>
+  </section>
+</sc-if>
+
+<!-- SHOP -->
+<sc-if value="{{ isShop }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:640px">
+      <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">The range</div>
+      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-.02em">Facial mists</h1>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#5A5146">Available in 100ml ($15.99) and 200ml ($21.99). Choose a size and send us an enquiry; we'll reply with ordering details.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.5vw,32px)">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <a href="#" onClick="{{ p.open }}" style="aspect-ratio:4/5;background:#EDECEA;overflow:hidden;display:block">
+            <img src="{{ p.img }}" alt="{{ p.name }} {{ p.sizeLabel }}" style="width:100%;height:100%;object-fit:cover;display:block;animation:lbFade .6s ease both">
+          </a>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <a href="#" onClick="{{ p.open }}" style="font-size:15px;font-weight:600;letter-spacing:.08em">{{ p.name }}</a>
+              <div style="font-size:15px">{{ p.price }}</div>
+            </div>
+            <div style="font-size:14px;color:#6B6155">{{ p.type }} · {{ p.sizeLabel }}</div>
+            <div style="font-size:13px;color:#6B6155">{{ p.ingredients }}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:stretch">
+            <div style="display:flex;border:1px solid rgba(43,38,32,.25)">
+              <button onClick="{{ p.pick100 }}" style="border:0;cursor:pointer;padding:0 14px;min-height:44px;font-size:13px;background:{{ p.bg100 }};color:{{ p.fg100 }}">100ml</button>
+              <button onClick="{{ p.pick200 }}" style="border:0;cursor:pointer;padding:0 14px;min-height:44px;font-size:13px;background:{{ p.bg200 }};color:{{ p.fg200 }}">200ml</button>
+            </div>
+            <a href="{{ p.mailto }}" style="flex:1;display:flex;align-items:center;justify-content:center;border:1px solid #2B2620;font-size:13px;letter-spacing:.04em;min-height:44px;transition:background .3s,color .3s" style-hover="background:#2B2620;color:#F3EFE7">Enquire</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<!-- PRODUCT -->
+<sc-if value="{{ isProduct }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(24px,3vw,40px) clamp(20px,4vw,48px) clamp(56px,7vw,104px);display:flex;flex-direction:column;gap:28px">
+    <a href="#" onClick="{{ goShop }}" style="font-size:13px;color:#6B6155;align-self:flex-start">← Back to the range</a>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:start">
+      <div style="aspect-ratio:4/5;background:#EDECEA;overflow:hidden">
+        <img src="{{ cur.img }}" alt="{{ cur.name }} {{ cur.sizeLabel }}" style="width:100%;height:100%;object-fit:cover;display:block;animation:lbFade .8s ease both">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:clamp(0px,2vw,32px);max-width:520px">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">{{ cur.time }} ritual</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h1 style="margin:0;font-size:clamp(36px,4vw,56px);font-weight:600;letter-spacing:.06em;line-height:1">{{ cur.name }}</h1>
+          <div style="font-family:Newsreader,serif;font-size:clamp(22px,2.2vw,28px);font-weight:300">{{ cur.type }}</div>
+        </div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#5A5146;text-wrap:pretty">{{ cur.desc }}</p>
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(43,38,32,.15);padding-top:24px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#6B6155">Size</span><span style="font-size:22px">{{ cur.price }}</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(43,38,32,.25)">
+            <button onClick="{{ cur.pick100 }}" style="border:0;cursor:pointer;min-height:52px;font-size:14px;background:{{ cur.bg100 }};color:{{ cur.fg100 }}">100ml · $15.99</button>
+            <button onClick="{{ cur.pick200 }}" style="border:0;cursor:pointer;min-height:52px;font-size:14px;background:{{ cur.bg200 }};color:{{ cur.fg200 }}">200ml · $21.99</button>
+          </div>
+          <a href="{{ cur.mailto }}" style="display:flex;align-items:center;justify-content:center;background:#2B2620;color:#F3EFE7;min-height:56px;font-size:14px;letter-spacing:.06em" style-hover="background:#4A4036;color:#F3EFE7">Enquire about {{ cur.name }}</a>
+          <div style="font-size:13px;color:#6B6155;text-align:center">Online ordering is paused. We'll reply by email with pricing and delivery.</div>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(43,38,32,.15);font-size:14px;line-height:1.6"><span style="color:#6B6155">Key botanicals</span><span>{{ cur.keys }}</span></div>
+          <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(43,38,32,.15);font-size:13px;line-height:1.6"><span style="color:#6B6155;font-size:14px">Full ingredients</span><span style="color:#5A5146">{{ cur.inci }}</span></div>
+          <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(43,38,32,.15);font-size:14px;line-height:1.6"><span style="color:#6B6155">How to use</span><span>{{ cur.use }}</span></div>
+          <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(43,38,32,.15);border-bottom:1px solid rgba(43,38,32,.15);font-size:14px;line-height:1.6"><span style="color:#6B6155">Good to know</span><span>Cruelty-free, non-toxic, vegan. Made in Australia. Minimum shelf life 24 months.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- INGREDIENTS -->
+<sc-if value="{{ isIngredients }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,48px) clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Ingredients</div>
+    <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.02em;max-width:16ch;text-wrap:balance">Nothing hidden. Every ingredient, named.</h1>
+    <p style="margin:0;font-size:18px;line-height:1.6;color:#5A5146;max-width:56ch">Every mist shares the same simple base. What changes is the blend of pure essential oils on top.</p>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(56px,7vw,96px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid #2B2620">
+      <div style="display:flex;flex-direction:column;gap:10px;padding:24px 24px 24px 0;border-right:1px solid rgba(43,38,32,.12)"><div style="font-family:Newsreader,serif;font-size:24px">Aqua</div><div style="font-size:14px;line-height:1.6;color:#5A5146">Purified water, the carrier for every blend.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:24px;border-right:1px solid rgba(43,38,32,.12)"><div style="font-family:Newsreader,serif;font-size:24px">Glycerin</div><div style="font-size:14px;line-height:1.6;color:#5A5146">A humectant that helps skin hold moisture.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:24px;border-right:1px solid rgba(43,38,32,.12)"><div style="font-family:Newsreader,serif;font-size:24px">Polysorbate 20</div><div style="font-size:14px;line-height:1.6;color:#5A5146">Derived from coconut oil. Lets the essential oils blend evenly with water.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:24px"><div style="font-family:Newsreader,serif;font-size:24px">Niacinamide</div><div style="font-size:14px;line-height:1.6;color:#5A5146">Vitamin B3, included to support skin health.</div></div>
+    </div>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(56px,7vw,112px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+    <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(24px,4vw,64px);align-items:start;border-top:1px solid rgba(43,38,32,.15);padding-top:clamp(28px,3vw,40px)">
+        <a href="#" onClick="{{ p.open }}" style="aspect-ratio:1/1;background:#EDECEA;overflow:hidden;display:block;max-width:440px">
+          <img src="{{ p.img200 }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
+        </a>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <span style="width:14px;height:14px;border-radius:50%;background:{{ p.label }};border:1px solid rgba(43,38,32,.2)"></span>
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155">{{ p.labelName }} · {{ p.time }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h2 style="margin:0;font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:.06em;line-height:1">{{ p.name }}</h2>
+            <div style="font-family:Newsreader,serif;font-size:22px;font-weight:300">{{ p.type }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8A6420">Essential oils</div>
+            <div style="font-family:Newsreader,serif;font-size:clamp(19px,1.8vw,24px);line-height:1.45">{{ p.keys }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8A6420">Full ingredients</div>
+            <p style="margin:0;font-size:14px;line-height:1.7;color:#5A5146;max-width:68ch">{{ p.inci }}</p>
+          </div>
+          <a href="#" onClick="{{ p.open }}" style="align-self:flex-start;font-size:14px;border-bottom:1px solid rgba(43,38,32,.3);padding-bottom:3px">View {{ p.name }}</a>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+</sc-if>
+
+<!-- ABOUT -->
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:clamp(48px,6vw,96px)">
+    <div style="display:flex;flex-direction:column;gap:24px;max-width:900px">
+      <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Our story</div>
+      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance">We started with a simple belief: plants can help us rest and wake well.</h1>
+    </div>
+    <img src="assets/group-shot.png" alt="The full range" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 70%;display:block">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,80px)">
+      <p style="margin:0;font-family:Newsreader,serif;font-size:clamp(22px,2vw,28px);font-weight:300;line-height:1.45">Liberation Botanicals is founded and owned in Australia. We make botanical facial mists that fit into the start and end of an ordinary day.</p>
+      <div style="display:flex;flex-direction:column;gap:18px;font-size:16px;line-height:1.7;color:#5A5146">
+        <p style="margin:0">Our range is small on purpose: two mists for the morning, two for the evening. Each pairs niacinamide with pure essential oils from Australian growers, distilled from the whole plant to keep its full scent.</p>
+        <p style="margin:0">We keep the formulas clear and the pricing honest, so a good botanical mist can be part of everyone's routine.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,3vw,48px)">
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Transparency</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Clear formulations and honest Australian sourcing.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Sustainable sourcing</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Respect for the native botanicals and the growers behind every blend.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Rigorous standards</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Whole-plant distillation and careful testing in Australian-owned facilities.</p></div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- CONTACT -->
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,96px)">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Contact</div>
+      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-.02em">Orders and enquiries</h1>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#5A5146;max-width:42ch">Online ordering is paused for now. Tell us what you'd like and we'll reply with pricing and delivery details. Stockist and wholesale enquiries are welcome too.</p>
+      <a href="mailto:info@liberationbotanicals.com.au" style="font-family:Newsreader,serif;font-size:clamp(20px,2vw,26px);border-bottom:1px solid rgba(43,38,32,.3);align-self:flex-start;padding-bottom:4px">info@liberationbotanicals.com.au</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.06em;color:#6B6155">Name<input value="{{ fName }}" onChange="{{ onName }}" style="font:inherit;font-size:16px;color:#2B2620;background:transparent;border:0;border-bottom:1px solid rgba(43,38,32,.3);padding:12px 0;outline:none"></label>
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.06em;color:#6B6155">Product
+        <select value="{{ fProduct }}" onChange="{{ onProduct }}" style="font:inherit;font-size:16px;color:#2B2620;background:transparent;border:0;border-bottom:1px solid rgba(43,38,32,.3);padding:12px 0;outline:none">
+          <option>General enquiry</option><option>CALM</option><option>RELAX</option><option>ENERGISE</option><option>REVIVE</option><option>Gift sets</option><option>Stockist / wholesale</option>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.06em;color:#6B6155">Message<textarea value="{{ fMsg }}" onChange="{{ onMsg }}" rows="5" style="font:inherit;font-size:16px;color:#2B2620;background:transparent;border:0;border-bottom:1px solid rgba(43,38,32,.3);padding:12px 0;outline:none;resize:vertical"></textarea></label>
+      <a href="{{ contactMailto }}" style="align-self:flex-start;background:#2B2620;color:#F3EFE7;padding:16px 32px;font-size:14px;letter-spacing:.04em;margin-top:8px" style-hover="background:#4A4036;color:#F3EFE7">Send enquiry</a>
+    </div>
+  </section>
+  <section style="background:#E6DFD2">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Stockists</div>
+        <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Carry the collection in store</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#5A5146;max-width:44ch">The range is available on a freestanding display unit holding both mist sizes and the gift sets. Email us for wholesale pricing.</p>
+        <a href="mailto:info@liberationbotanicals.com.au?subject=Stockist%20enquiry" style="align-self:flex-start;background:#2B2620;color:#F3EFE7;padding:16px 28px;font-size:14px;letter-spacing:.04em">Stockist enquiry</a>
+      </div>
+      <img src="assets/fsdu.png" alt="Liberation Botanicals in-store display unit" style="width:100%;max-width:420px;justify-self:center;display:block">
+    </div>
+  </section>
+</sc-if>
+
+</main>
+
+<footer style="background:#2B2620;color:#C9BFAE">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,4vw,48px) 32px;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap">
+      <img src="assets/logo-gold.png" alt="Liberation Botanicals" style="height:56px;width:auto;display:block">
+      <div style="display:flex;gap:clamp(32px,6vw,96px);flex-wrap:wrap;font-size:14px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="#" onClick="{{ goShop }}" style="color:#EDE6D8">Range</a>
+          <a href="#" onClick="{{ goIngredients }}" style="color:#EDE6D8">Ingredients</a>
+          <a href="#" onClick="{{ goAbout }}" style="color:#EDE6D8">Our story</a>
+          <a href="#" onClick="{{ goContact }}" style="color:#EDE6D8">Contact &amp; enquiries</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:260px">
+          <span>Orders and enquiries</span>
+          <a href="mailto:info@liberationbotanicals.com.au" style="color:#E9C77B">info@liberationbotanicals.com.au</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.04em;border-top:1px solid rgba(237,230,216,.15);padding-top:24px">
+      <span>© 2026 Liberation Botanicals. Proudly Australian made and owned.</span>
+      <span>Cruelty-free · Non-toxic · Vegan</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;homeDirection&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Apothecary&quot;,&quot;Colour&quot;],&quot;default&quot;:&quot;Apothecary&quot;,&quot;tsType&quot;:&quot;'Apothecary'|'Colour'&quot;}}">
+const PRODUCTS = [
+  { id:'calm', name:'CALM', type:'Mood Relaxing Spray', time:'Night', feel:'To quiet the mind', label:'#DCD2EC', labelName:'Lilac label',
+    ingredients:'Niacinamide, lavender, clary sage',
+    keys:'Lavender · Jojoba · Roman Chamomile · Clary Sage · Sweet Orange',
+    inci:'Aqua, Glycerin, Polysorbate 20 Derived from Coconut Oil, Niacinamide (Vitamin B3), Lavandula Angustifolia (Lavender) Oil, Simmondsia Chinensis Seed Oil (Jojoba Oil), Anthemis Nobilis (Chamomile Roman) Flower Oil, Salvia Sclarea (Clary Sage) Oil, Citrus Aurantium Dulcis (Sweet Orange) Oil',
+    desc:'A soothing, calming botanical blend to ease tension and quiet the mind. Infused with lavender, clary sage and premium botanical oils to promote a sense of calm, balance and emotional wellbeing.',
+    use:'Mist two or three times over face and pillow as you wind down.' },
+  { id:'relax', name:'RELAX', type:'Mood Relaxing Spray', time:'Night', feel:'For restful moments', label:'#F4E3A6', labelName:'Yellow label',
+    ingredients:'Niacinamide, lavender, chamomile',
+    keys:'Lavender · Bergamot · Ylang Ylang',
+    inci:'Aqua, Glycerin, Polysorbate 20 Derived from Coconut Oil, Niacinamide (Vitamin B3), Lavandula Angustifolia (Lavender) Oil, Citrus Bergamia (Bergamot) Peel Oil, Cananga Odorata (Ylang Ylang) Flower Oil',
+    desc:'A gentle, comforting botanical blend to promote relaxation and restful moments. Infused with chamomile, lavender, bergamot and premium botanical oils for a comforting bedtime ritual.',
+    use:'Mist in the evening after cleansing, or over your pillow before sleep.' },
+  { id:'energise', name:'ENERGISE', type:'Mood Lifting Spray', time:'Morning', feel:'To boost energy', label:'#F6C3A0', labelName:'Peach label',
+    ingredients:'Niacinamide, citrus oils',
+    keys:'Lavender · Bergamot · Cedarwood · Lemon · Pink Grapefruit',
+    inci:'Aqua, Glycerin, Polysorbate 20 Derived from Coconut Oil, Niacinamide (Vitamin B3), Lavandula Angustifolia (Lavender) Oil, Citrus Bergamia (Bergamot) Peel Oil, Cedrus Atlantica (Cedarwood) Wood Oil, Citrus Limon (Lemon) Peel Oil, Citrus Paradisi (Pink Grapefruit) Oil',
+    desc:'A fresh, invigorating botanical blend to energise the senses. Infused with bergamot, citrus oil, pink grapefruit and premium botanical oils to restore alertness and refresh you through the day.',
+    use:'Mist after cleansing in the morning, or whenever you need a lift.' },
+  { id:'revive', name:'REVIVE', type:'Mood Lifting Spray', time:'Morning', feel:'To inspire vitality', label:'#E4E8B8', labelName:'Green label',
+    ingredients:'Niacinamide, botanical oils',
+    keys:'Sweet Orange · Ylang Ylang · Cardamom · Patchouli · Clove · Bergamot · Jasmine · Australian Sandalwood · Rose',
+    inci:'Aqua, Glycerin, Polysorbate 20 Derived from Coconut Oil, Niacinamide (Vitamin B3), Citrus Aurantium Dulcis Peel Oil (Orange Sweet Oil), Cananga Odorata Flower Oil (Ylang Ylang 1st Oil), Elettaria Cardamomum Seed Oil (Cardamom Oil), Pogostemon Cablin Leaf Oil (Patchouli Leaf Oil), Eugenia Caryophyllus Bud Oil (Clove Bud Oil), Citrus Aurantium Bergamia Fruit Oil, Jasminum Sambac Flower Extract (Jasmine Sambac Absolute), Fusanus Spicatus Wood Oil (Sandalwood Australian Oil), Rosa Damascena Flower Oil (Rose Absolute)',
+    desc:'A warm, uplifting botanical blend to refresh the senses. Infused with sweet orange, jasmine, clove and premium botanical oils to restore alertness throughout the day.',
+    use:'Mist two or three times, morning or midday.' },
+].map(p => ({ ...p, img100:`assets/${p.id}-100.png`, img200:`assets/${p.id}-200.png` }));
+const EMAIL = 'info@liberationbotanicals.com.au';
+
+class Component extends DCLogic {
+  state = { page:'home', pid:'calm', sizes:{}, fName:'', fProduct:'General enquiry', fMsg:'' };
+
+  go(page, pid) {
+    return e => { e && e.preventDefault && e.preventDefault(); this.setState(pid ? { page, pid } : { page }); window.scrollTo({ top:0, behavior:'smooth' }); };
+  }
+  decorate(p) {
+    const s = this.state.sizes[p.id] || '100';
+    const on = ['#2B2620', '#F3EFE7'], off = ['transparent', '#2B2620'];
+    const setSize = v => () => this.setState(st => ({ sizes: { ...st.sizes, [p.id]: v } }));
+    return { ...p, size:s, img: s === '200' ? p.img200 : p.img100, sizeLabel: s + 'ml', price: s === '200' ? '$21.99' : '$15.99',
+      bg100:(s==='100'?on:off)[0], fg100:(s==='100'?on:off)[1], bg200:(s==='200'?on:off)[0], fg200:(s==='200'?on:off)[1],
+      pick100:setSize('100'), pick200:setSize('200'),
+      mailto:`mailto:${EMAIL}?subject=${encodeURIComponent(`Enquiry: ${p.name} ${p.type} ${s}ml`)}`,
+      open:this.go('product', p.id) };
+  }
+  renderVals() {
+    const dir = this.props.homeDirection ?? 'Apothecary';
+    const { page, fName, fProduct, fMsg } = this.state;
+    const products = PRODUCTS.map(p => this.decorate(p));
+    const byId = Object.fromEntries(products.map(p => [p.id, p]));
+    const body = `${fMsg}\n\n${fName}`;
+    return {
+      products, cur: byId[this.state.pid],
+      isHomeA: page === 'home' && dir === 'Apothecary',
+      isHomeB: page === 'home' && dir === 'Colour',
+      ulShop: (page === 'shop' || page === 'product') ? '#2B2620' : 'transparent',
+      ulAbout: page === 'about' ? '#2B2620' : 'transparent',
+      ulContact: page === 'contact' ? '#2B2620' : 'transparent',
+      ulIngredients: page === 'ingredients' ? '#2B2620' : 'transparent',
+      isIngredients: page === 'ingredients', goIngredients:this.go('ingredients'),
+      isShop: page === 'shop', isProduct: page === 'product', isAbout: page === 'about', isContact: page === 'contact',
+      goHome:this.go('home'), goShop:this.go('shop'), goAbout:this.go('about'), goContact:this.go('contact'),
+      openCalm:byId.calm.open, openRelax:byId.relax.open, openEnergise:byId.energise.open, openRevive:byId.revive.open,
+      fName, fProduct, fMsg,
+      onName:e => this.setState({ fName:e.target.value }),
+      onProduct:e => this.setState({ fProduct:e.target.value }),
+      onMsg:e => this.setState({ fMsg:e.target.value }),
+      contactMailto:`mailto:${EMAIL}?subject=${encodeURIComponent('Enquiry: ' + fProduct)}&body=${encodeURIComponent(body)}`,
+    };
+  }
+}
+</script>
+</body>
+</html>
