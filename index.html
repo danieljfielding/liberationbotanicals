@@ -51,8 +51,8 @@ button{font-family:inherit}
         <a href="#" onClick="{{ goAbout }}" style="padding:16px 4px;font-size:14px;letter-spacing:.04em;border-bottom:1px solid rgba(43,38,32,.3)">Our story</a>
       </div>
     </div>
-    <div style="aspect-ratio:4/5;overflow:hidden;background:#E6DFD2">
-      <img src="assets/lifestyle-marble.webp" alt="The Liberation Botanicals range on marble with lavender" style="width:100%;height:100%;object-fit:cover;object-position:center 100%;display:block">
+    <div style="aspect-ratio:4/3;overflow:hidden;background:#E6DFD2">
+      <img src="assets/hero-group.jpg" alt="The Liberation Botanicals Mood Spray Collection" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block">
     </div>
   </section>
 
@@ -67,10 +67,10 @@ button{font-family:inherit}
           <a href="#" onClick="{{ openEnergise }}" style="padding:10px 18px;border:1px solid rgba(43,38,32,.25);font-size:13px;letter-spacing:.06em">ENERGISE</a>
         </div>
       </div>
-      <div style="padding:clamp(40px,5vw,72px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:20px;background:#2B2620;color:#EDE6D8">
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E9C77B">Night</div>
+      <div style="padding:clamp(40px,5vw,72px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:20px;background:#6B5A48;color:#F3EDE2">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F0D594">Night</div>
         <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Slow the evening.</h2>
-        <p style="margin:0;font-size:16px;line-height:1.65;color:#C9BFAE;max-width:42ch">Lavender, clary sage, chamomile and bergamot to settle you before sleep. Mist over face and pillow as you wind down.</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#EDE5D6;max-width:42ch">Lavender, clary sage, chamomile and bergamot to settle before sleep. Mist over face and pillow as you wind down.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
           <a href="#" onClick="{{ openCalm }}" style="padding:10px 18px;border:1px solid rgba(237,230,216,.35);font-size:13px;letter-spacing:.06em;color:#EDE6D8">CALM</a>
           <a href="#" onClick="{{ openRelax }}" style="padding:10px 18px;border:1px solid rgba(237,230,216,.35);font-size:13px;letter-spacing:.06em;color:#EDE6D8">RELAX</a>
@@ -88,7 +88,7 @@ button{font-family:inherit}
       <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
         <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:16px;color:#2B2620">
           <div style="aspect-ratio:4/5;background:#EDECEA;overflow:hidden">
-            <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)">
+            <img src="{{ p.img100 }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)">
           </div>
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
             <div style="display:flex;flex-direction:column;gap:4px">
@@ -112,7 +112,7 @@ button{font-family:inherit}
     <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2B2620;padding-top:20px">
       <div style="font-family:Newsreader,serif;font-size:15px;color:#8A6420">02</div>
       <h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:26px">Niacinamide in every mist</h3>
-      <p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Each formula carries niacinamide alongside its botanicals for a light, hydrating finish.</p>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Each formula carries niacinamide alongside botanicals for a light, hydrating finish.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2B2620;padding-top:20px">
       <div style="font-family:Newsreader,serif;font-size:15px;color:#8A6420">03</div>
@@ -123,7 +123,7 @@ button{font-family:inherit}
 
   <section style="background:#E6DFD2">
     <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));align-items:center">
-      <img src="assets/gift-sets.png" alt="Restore and Rejuvenate gift sets" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3">
+      <img src="assets/gift-sets.jpg" alt="Restore and Rejuvenate gift sets" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3">
       <div style="padding:clamp(40px,5vw,80px) clamp(20px,4vw,64px);display:flex;flex-direction:column;gap:22px">
         <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Gift sets</div>
         <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,48px);line-height:1.1">Restore and Rejuvenate</h2>
@@ -167,7 +167,7 @@ button{font-family:inherit}
 
   <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,112px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
     <div style="aspect-ratio:1/1;overflow:hidden;background:#E6DFD2">
-      <img src="assets/lifestyle-marble.webp" alt="The range on marble with lavender" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block">
+      <img src="assets/lifestyle-marble.jpg" alt="The range on marble with lavender" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block">
     </div>
     <div style="display:flex;flex-direction:column;gap:32px">
       <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(32px,3.6vw,52px);line-height:1.08">How to use</h2>
@@ -196,7 +196,7 @@ button{font-family:inherit}
         <p style="margin:0;font-size:16px;line-height:1.65;color:#C9BFAE;max-width:42ch">Two-mist boxes for the evening and the morning. Made to be given.</p>
         <a href="mailto:info@liberationbotanicals.com.au?subject=Gift%20set%20enquiry" style="align-self:flex-start;background:#E9C77B;color:#2B2620;padding:16px 28px;font-size:14px;letter-spacing:.04em">Enquire about gift sets</a>
       </div>
-      <img src="assets/gift-sets.png" alt="Restore and Rejuvenate gift sets" style="width:100%;display:block">
+      <img src="assets/gift-sets.jpg" alt="Restore and Rejuvenate gift sets" style="width:100%;display:block">
     </div>
   </section>
 </sc-if>
@@ -258,7 +258,7 @@ button{font-family:inherit}
             <button onClick="{{ cur.pick200 }}" style="border:0;cursor:pointer;min-height:52px;font-size:14px;background:{{ cur.bg200 }};color:{{ cur.fg200 }}">200ml · $21.99</button>
           </div>
           <a href="{{ cur.mailto }}" style="display:flex;align-items:center;justify-content:center;background:#2B2620;color:#F3EFE7;min-height:56px;font-size:14px;letter-spacing:.06em" style-hover="background:#4A4036;color:#F3EFE7">Enquire about {{ cur.name }}</a>
-          <div style="font-size:13px;color:#6B6155;text-align:center">Online ordering is paused. We'll reply by email with pricing and delivery.</div>
+          <div style="font-size:13px;color:#6B6155;text-align:center">We'll reply by email with pricing and delivery.</div>
         </div>
         <div style="display:flex;flex-direction:column">
           <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(43,38,32,.15);font-size:14px;line-height:1.6"><span style="color:#6B6155">Key botanicals</span><span>{{ cur.keys }}</span></div>
@@ -321,20 +321,28 @@ button{font-family:inherit}
   <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:clamp(48px,6vw,96px)">
     <div style="display:flex;flex-direction:column;gap:24px;max-width:900px">
       <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Our story</div>
-      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance">We started with a simple belief: plants can help us rest and wake well.</h1>
+      <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance">Finest quality. Fair prices. Proudly Australian.</h1>
     </div>
-    <img src="assets/group-shot.png" alt="The full range" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 70%;display:block">
+    <img src="assets/story-100ml.jpg" alt="REVIVE, ENERGISE, CALM and RELAX 100ml" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 45%;display:block">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,80px)">
-      <p style="margin:0;font-family:Newsreader,serif;font-size:clamp(22px,2vw,28px);font-weight:300;line-height:1.45">Liberation Botanicals is founded and owned in Australia. We make botanical facial mists that fit into the start and end of an ordinary day.</p>
+      <p style="margin:0;font-family:Newsreader,serif;font-size:clamp(22px,2vw,28px);font-weight:300;line-height:1.45">Liberation Botanicals was born from 12 years in wellness and a simple belief: the finest quality shouldn't cost a fortune.</p>
       <div style="display:flex;flex-direction:column;gap:18px;font-size:16px;line-height:1.7;color:#5A5146">
-        <p style="margin:0">Our range is small on purpose: two mists for the morning, two for the evening. Each pairs niacinamide with pure essential oils from Australian growers, distilled from the whole plant to keep its full scent.</p>
-        <p style="margin:0">We keep the formulas clear and the pricing honest, so a good botanical mist can be part of everyone's routine.</p>
+        <p style="margin:0">We spent those years developing brands and building retail presence, learning what works and what customers truly want. We took that experience, and the relationships we built across manufacturing, and set out to make products the way we always believed they should be made: thoughtfully, honestly and without unnecessary markups.</p>
+        <p style="margin:0">Every product is made in Australia with local manufacturers we know and trust, and scented the way nature intended. Soft, authentic and never synthetic.</p>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,3vw,48px)">
-      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Transparency</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Clear formulations and honest Australian sourcing.</p></div>
-      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Sustainable sourcing</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Respect for the native botanicals and the growers behind every blend.</p></div>
-      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Rigorous standards</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Whole-plant distillation and careful testing in Australian-owned facilities.</p></div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <h2 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.1">Good all round</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(24px,3vw,48px)">
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Good for you</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Products that feel wonderful and leave you feeling your best.</p></div>
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Good for your skin</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Gentle, nourishing formulations that treat your skin with care.</p></div>
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Good for the environment</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Local manufacturing, thoughtful choices and a lighter footprint.</p></div>
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2B2620;padding-top:20px"><h3 style="margin:0;font-family:Newsreader,serif;font-weight:400;font-size:24px">Good for the hip pocket</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#5A5146">Premium quality at everyday prices, because feeling good should never feel like a luxury.</p></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;padding-top:clamp(16px,3vw,40px)">
+      <p style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(26px,3vw,40px);line-height:1.2">Welcome to the Liberation Botanicals family.</p>
+      <p style="margin:0;font-family:Newsreader,serif;font-style:italic;font-size:clamp(20px,2vw,26px);color:#8A6420">Feel good, naturally.</p>
     </div>
   </section>
 </sc-if>
@@ -345,7 +353,7 @@ button{font-family:inherit}
     <div style="display:flex;flex-direction:column;gap:24px">
       <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6420">Contact</div>
       <h1 style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-.02em">Orders and enquiries</h1>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#5A5146;max-width:42ch">Online ordering is paused for now. Tell us what you'd like and we'll reply with pricing and delivery details. Stockist and wholesale enquiries are welcome too.</p>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#5A5146;max-width:42ch">Tell us what you'd like and we'll reply with pricing and delivery details. Stockist and wholesale enquiries are welcome too.</p>
       <a href="mailto:info@liberationbotanicals.com.au" style="font-family:Newsreader,serif;font-size:clamp(20px,2vw,26px);border-bottom:1px solid rgba(43,38,32,.3);align-self:flex-start;padding-bottom:4px">info@liberationbotanicals.com.au</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px">
@@ -367,7 +375,7 @@ button{font-family:inherit}
         <p style="margin:0;font-size:16px;line-height:1.65;color:#5A5146;max-width:44ch">The range is available on a freestanding display unit holding both mist sizes and the gift sets. Email us for wholesale pricing.</p>
         <a href="mailto:info@liberationbotanicals.com.au?subject=Stockist%20enquiry" style="align-self:flex-start;background:#2B2620;color:#F3EFE7;padding:16px 28px;font-size:14px;letter-spacing:.04em">Stockist enquiry</a>
       </div>
-      <img src="assets/fsdu.png" alt="Liberation Botanicals in-store display unit" style="width:100%;max-width:420px;justify-self:center;display:block">
+      <img src="assets/fsdu.jpg" alt="Liberation Botanicals in-store display unit" style="width:100%;max-width:420px;justify-self:center;display:block">
     </div>
   </section>
 </sc-if>
@@ -426,7 +434,7 @@ const PRODUCTS = [
     inci:'Aqua, Glycerin, Polysorbate 20 Derived from Coconut Oil, Niacinamide (Vitamin B3), Citrus Aurantium Dulcis Peel Oil (Orange Sweet Oil), Cananga Odorata Flower Oil (Ylang Ylang 1st Oil), Elettaria Cardamomum Seed Oil (Cardamom Oil), Pogostemon Cablin Leaf Oil (Patchouli Leaf Oil), Eugenia Caryophyllus Bud Oil (Clove Bud Oil), Citrus Aurantium Bergamia Fruit Oil, Jasminum Sambac Flower Extract (Jasmine Sambac Absolute), Fusanus Spicatus Wood Oil (Sandalwood Australian Oil), Rosa Damascena Flower Oil (Rose Absolute)',
     desc:'A warm, uplifting botanical blend to refresh the senses. Infused with sweet orange, jasmine, clove and premium botanical oils to restore alertness throughout the day.',
     use:'Mist two or three times, morning or midday.' },
-].map(p => ({ ...p, img100:`assets/${p.id}-100.png`, img200:`assets/${p.id}-200.png` }));
+].map(p => ({ ...p, img100:`assets/${p.id}-100-u.jpg`, img200:`assets/${p.id}-200-u.jpg` }));
 const EMAIL = 'info@liberationbotanicals.com.au';
 
 class Component extends DCLogic {
